@@ -140,8 +140,11 @@
             <p>Incluye todas las actualizaciones de contenido de la convocatoria actual.</p>
             <div class="price">29,90 €</div>
             <p style="margin-bottom: 2rem; color: #64748b;">Pago único seguro mediante Stripe (Tarjeta / Apple Pay / Google Pay)</p>
-            <!-- Reemplaza el href con tu enlace de pago real de Stripe -->
-            <a href="https://buy.stripe.com/aFa14p3Wd7Bgf4CbkX5Rm00" class="cta-button">Comprar Pack Opositor Ahora</a>
+            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1U9r3DRuoKHlOnFKVBLQnchx"
+              publishable-key="pk_live_51U9q5NRuoKHlOnFKsHPAtR8OkAytxMbgCJObkHMCRafspm8TfXvkEQUF3wSZyaXQEZKUwCbdGeFg5Rrpej1gDbIt00G0xUJrs7">
+            </stripe-buy-button>
         </div>
     </div>
 
