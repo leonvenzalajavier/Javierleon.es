@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    body { margin: 0; background: #faf8f2; color: #122b27; font: 1rem/1.6 system-ui, sans-serif; }
+    main { max-width: 36rem; margin: 3rem auto; padding: clamp(1rem, 5vw, 2rem); }
+    h1 { font: 500 clamp(2rem, 6vw, 3rem)/1.1 Georgia, serif; }
+    form { background: white; border: 1px solid #d4ddd5; border-radius: .85rem; padding: 1.3rem; }
+    label, input { display: block; }
+    label { font-weight: 650; }
+    input { box-sizing: border-box; max-width: 100%; margin: .3rem 0 1rem; font: inherit; }
+    button { background: #122b27; color: white; border: 0; border-radius: .45rem; padding: .75rem 1rem; font: inherit; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: wait; }
+  </style>
+</head>
+<body>
+  <main>
+    <p>Javier León · Revisión de programación</p>
+    <h1>Sube tu programación</h1>
+    <p>Recibirás la corrección en un máximo de 10 días desde que envíes el documento.</p>
+    <form id="upload" hidden>
+      <input type="hidden" name="sessionId" value="<?= sessionId ?>">
+      <label for="specialty">Especialidad</label>
+      <input id="specialty" name="specialty" required maxlength="120">
+      <label for="programming">Archivo Word (.doc o .docx, máximo 10 MB)</label>
+      <input id="programming" name="programming" type="file" accept=".doc,.docx" required>
+      <button type="submit">Enviar programación</button>
+    </form>
+    <p id="status" role="status">Verificando el pago…</p>
+    <p>Si tienes dificultades con el envío, escribe a <a href="mailto:leonvenzalajavier@gmail.com">leonvenzalajavier@gmail.com</a>.</p>
+  </main>
+  <script>
+    const form = document.querySelector('#upload');
+    const statusMessage = document.querySelector('#status');
+    const button = form.querySelector('button');
+
+    function received() {
+      form.hidden = true;
+      statusMessage.textContent = 'Hemos recibido tu programación. La corrección se enviará al correo que usaste para pagar.';
+    }
+
+    function failure(error) {
+      button.disabled = false;
+      statusMessage.textContent = error.message || 'Se ha producido un error. Vuelve a intentarlo.';
+    }
+
+    google.script.run.withFailureHandler(failure).withSuccessHandler(order => {
+      if (!order.available) {
+        received();
+        return;
+      }
+      statusMessage.textContent = 'Pago confirmado.';
+      form.hidden = false;
+    }).checkOrder(form.elements.sessionId.value);
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      button.disabled = true;
+      statusMessage.textContent = 'Enviando tu programación…';
+      google.script.run.withFailureHandler(failure).withSuccessHandler(received).sendProgramming(form);
+    });
+  </script>
+</body>
+</html>
