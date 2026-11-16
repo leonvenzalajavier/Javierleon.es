@@ -1,152 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pack Opositor Docente | Prepara tu plaza con método</title>
-    <style>
-        :root {
-            --primary: #1e3a8a;
-            --secondary: #2563eb;
-            --accent: #f59e0b;
-            --bg: #f8fafc;
-            --text: #1e293b;
-        }
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            padding: 4rem 1rem;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-            opacity: 0.9;
-        }
-        .cta-button {
-            background-color: var(--accent);
-            color: #1e293b;
-            padding: 0.9rem 2rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .cta-button:hover {
-            background-color: #d97706;
-            transform: translateY(-2px);
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--primary);
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--secondary);
-        }
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-        .pricing-box {
-            background: white;
-            border: 2px solid var(--secondary);
-            border-radius: 16px;
-            text-align: center;
-            padding: 3rem 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 1rem 0;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #1e293b;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packs de oposiciones docentes y revisión de programación | Javier León</title>
+  <meta name="description" content="Pack opositor de Primaria, pack de Francés de Secundaria y revisión de programación didáctica con Javier León.">
+  <meta name="theme-color" content="#122b27">
+  <style>
+    :root {
+      --paper: #faf8f2;
+      --ink: #122b27;
+      --muted: #46605a;
+      --line: #d4ddd5;
+      --white: #fff;
+      --lime: #d9edaa;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 1.5rem; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: 500; line-height: 1.08; text-wrap: balance; }
+    h1 { font-size: clamp(2.65rem, 6.8vw, 5.5rem); letter-spacing: -.055em; margin: .25em 0; }
+    h2 { font-size: clamp(2.1rem, 4.5vw, 3.5rem); letter-spacing: -.035em; margin: 0 0 .45em; }
+    h3 { font-size: 1.75rem; margin: .2em 0 .42em; }
+    p { margin: 0 0 1rem; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid #b8752d; outline-offset: 4px; }
+    .wrap { width: min(70rem, calc(100% - 2rem)); margin-inline: auto; }
+    .skip { position: absolute; top: .5rem; left: .5rem; padding: .5rem; background: var(--white); transform: translateY(-200%); }
+    .skip:focus { transform: none; }
+    .masthead { background: var(--ink); color: var(--white); }
+    nav, .actions, .footer { display: flex; flex-wrap: wrap; align-items: center; gap: .85rem 1.4rem; }
+    nav { justify-content: space-between; padding-block: 1rem; border-bottom: 1px solid #4a6058; }
+    .brand { font: 1.55rem Georgia, serif; text-decoration: none; }
+    .nav-link { color: var(--lime); text-underline-offset: .3em; }
+    .hero { padding-block: clamp(3.2rem, 8vw, 7rem); }
+    .hero h1 { max-width: 12ch; }
+    .hero p:not(.eyebrow) { color: #e0e9df; max-width: 53ch; font-size: 1.1rem; }
+    .eyebrow { font-size: .78rem; font-weight: 750; letter-spacing: .095em; text-transform: uppercase; margin-bottom: .6rem; }
+    .hero .eyebrow { color: var(--lime); }
+    .actions { margin-top: 1.7rem; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 3rem;
+      padding: .65rem 1rem; border: 1px solid transparent; border-radius: .45rem;
+      background: var(--ink); color: var(--white); font-weight: 700;
+      line-height: 1.3; text-decoration: none; text-align: center;
+    }
+    .button:hover { text-decoration: underline; text-underline-offset: .22em; }
+    .button.light { background: var(--lime); color: var(--ink); }
+    .button.outline { background: transparent; color: inherit; border-color: currentColor; }
+    .section { padding-block: clamp(2.8rem, 6vw, 5rem); }
+    .cards, .split { display: grid; gap: 1.1rem; }
+    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: .85rem; padding: clamp(1.15rem, 3vw, 1.7rem); }
+    .card:first-child { border-top: 4px solid #456b3d; }
+    .card .button { align-self: flex-start; margin-top: auto; }
+    .muted { color: var(--muted); }
+    .price { font-size: 2rem; font-weight: 750; line-height: 1.2; }
+    .split { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
+    .band { background: #edf2e8; }
+    .features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem; margin-top: 1.5rem; }
+    .features h3 { font-size: 1.4rem; }
+    .features p { margin: 0; }
+    .stack > section + section { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; font-weight: 700; padding-block: .8rem; }
+    .footer { justify-content: space-between; padding-block: 1.3rem; border-top: 1px solid var(--line); }
+    @media (max-width: 49rem) {
+      .cards, .split { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 29rem) {
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>Pack Opositor Docente 2026–2027</h1>
-        <p>Todo lo que necesitas para preparar tu programación, supuestos prácticos y defensa oral con un método directo, claro y estructurado.</p>
-        <a href="#precio" class="cta-button">Conseguir el Pack por 49,90 €</a>
-    </header>
-
-    <div class="container">
-        <h2 class="section-title">¿Qué incluye el Pack?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>📁 Supuestos Prácticos</h3>
-                <p>10 casos prácticos resueltos paso a paso, acompañados de esquemas de resolución y checklists de autocorrección.</p>
-            </div>
-            <div class="card">
-                <h3>⚖️ Normativa Esencial</h3>
-                <p>Mapa normativo actualizado, artículos clave destacados y guía rápida sobre qué normativa aplicar en cada sección.</p>
-            </div>
-            <div class="card">
-                <h3>🗣️ Defensa Oral</h3>
-                <p>Guiones completos para la exposición, frases de transición efectivas, estructura temporal óptima y errores a evitar ante el tribunal.</p>
-            </div>
-            <div class="card">
-                <h3>📊 Evaluación y Extras</h3>
-                <p>Criterios de calificación reales, rúbricas orientativas, plantillas de planificación y calendarios de estudio editables.</p>
-            </div>
-        </div>
-
-        <div id="precio" class="pricing-box">
-            <h2>Acceso Completo Inmediato</h2>
-            <p>Incluye todas las actualizaciones de contenido de la convocatoria actual.</p>
-            <div class="price">49,90 €</div>
-            <p style="margin-bottom: 2rem; color: #64748b;">Pago único seguro mediante Stripe (Tarjeta / Apple Pay / Google Pay)</p>
-            <a href="https://buy.stripe.com/bJe00lcsJdZEf4C4Wz5Rm01" class="cta-button">Comprar Pack Opositor Ahora</a>
-        </div>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="masthead">
+    <nav class="wrap" aria-label="Navegación principal">
+      <a class="brand" href="./">Javier León</a>
+      <a class="nav-link" href="#oferta">Packs y revisión</a>
+    </nav>
+    <div class="wrap hero">
+      <p class="eyebrow">Oposiciones docentes · 2026–2027</p>
+      <h1>Prepara tu oposición con un plan claro</h1>
+      <p>Elige el pack de tu especialidad o solicita una revisión si ya tienes un borrador de tu programación didáctica.</p>
+      <div class="actions">
+        <a class="button light" href="#oferta">Ver packs de oposiciones</a>
+        <a class="button outline" href="#revision">Te corrijo la programación</a>
+      </div>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2026 Oposiciones Docentes. Todos los derechos reservados.</p>
-    </footer>
+  <main id="contenido">
+    <section class="wrap section" id="oferta" aria-labelledby="oferta-titulo">
+      <h2 id="oferta-titulo">¿Qué estás preparando?</h2>
+      <div class="cards">
+        <article class="card">
+          <p class="eyebrow muted">Educación Primaria</p>
+          <h3>Pack opositor de Primaria</h3>
+          <p>Practica con casos resueltos y prepara la defensa con guiones, rúbricas y plantillas de estudio.</p>
+          <p><span class="price">49,90 €</span><br><span class="muted">Pago único · Acceso inmediato</span></p>
+          <a class="button" href="#primaria">Ver el pack de Primaria</a>
+        </article>
+        <article class="card">
+          <p class="eyebrow muted">Educación Secundaria</p>
+          <h3>Pack opositor de Francés</h3>
+          <p>Una opción específica para quienes se presentan a la especialidad de Francés de Secundaria.</p>
+          <a class="button outline" href="#frances">Ver Francés de Secundaria</a>
+        </article>
+        <article class="card">
+          <p class="eyebrow muted">Revisión individual</p>
+          <h3>Corrección de programación didáctica</h3>
+          <p>Si ya tienes un borrador, revisa qué conviene reforzar antes de entregar tu programación o preparar la defensa.</p>
+          <a class="button outline" href="#revision">Te corrijo la programación</a>
+        </article>
+      </div>
+    </section>
 
+    <section class="band section" id="primaria" aria-labelledby="primaria-titulo">
+      <div class="wrap split">
+        <div>
+          <h2 id="primaria-titulo">Qué incluye el pack de Primaria</h2>
+          <div class="features">
+            <div>
+              <h3>10 supuestos prácticos</h3>
+              <p>Casos resueltos paso a paso, esquemas de resolución y listas de autocorrección.</p>
+            </div>
+            <div>
+              <h3>Normativa esencial</h3>
+              <p>Mapa normativo, artículos clave y guía para aplicar la normativa en cada apartado.</p>
+            </div>
+            <div>
+              <h3>Defensa oral</h3>
+              <p>Guiones, frases de transición y pautas para distribuir el tiempo y evitar errores habituales.</p>
+            </div>
+            <div>
+              <h3>Evaluación y planificación</h3>
+              <p>Criterios de calificación, rúbricas orientativas, plantillas y calendarios editables.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="card" id="precio" aria-labelledby="precio-titulo">
+          <h3 id="precio-titulo">Acceso al pack de Primaria</h3>
+          <p class="price">49,90 €</p>
+          <p>Acceso inmediato y actualizaciones del contenido de la convocatoria actual.</p>
+          <p class="muted">Pago único mediante Stripe. Tarjeta, Apple Pay o Google Pay.</p>
+          <a class="button" href="https://buy.stripe.com/bJe00lcsJdZEf4C4Wz5Rm01">Comprar pack de Primaria</a>
+        </aside>
+      </div>
+    </section>
+
+    <div class="wrap section stack">
+      <section id="frances" aria-labelledby="frances-titulo">
+        <h2 id="frances-titulo">Pack opositor de Francés de Secundaria</h2>
+        <p>Para aspirantes a la especialidad de Francés del cuerpo de profesorado de Enseñanza Secundaria.</p>
+        <p class="muted">La ficha del pack, el precio y el acceso se publicarán aquí cuando estén confirmados.</p>
+      </section>
+      <section id="revision" aria-labelledby="revision-titulo">
+        <h2 id="revision-titulo">Te corrijo la programación</h2>
+        <p>Una revisión individual para detectar qué apartados necesitan más claridad y qué ajustes conviene priorizar antes de la entrega.</p>
+        <p class="muted">El canal de solicitud y las condiciones de la revisión se publicarán aquí cuando estén confirmados.</p>
+      </section>
+      <section aria-labelledby="preguntas-titulo">
+        <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
+        <details>
+          <summary>¿A qué pack corresponde el precio de 49,90 €?</summary>
+          <p>Al pack opositor de Educación Primaria. Es un pago único.</p>
+        </details>
+        <details>
+          <summary>¿Cuándo tendré acceso al pack de Primaria?</summary>
+          <p>El acceso es inmediato tras la compra.</p>
+        </details>
+        <details>
+          <summary>¿Cuándo me interesa la corrección individual?</summary>
+          <p>Cuando ya tienes un borrador y quieres identificar qué cambios conviene hacer antes de entregar la programación.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+  <footer class="wrap footer">
+    <span>© 2026 Javier León</span>
+    <a href="#oferta">Volver a packs y revisión</a>
+  </footer>
 </body>
 </html>
