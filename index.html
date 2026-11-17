@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Packs de oposiciones docentes y revisión de programación | Javier León</title>
   <meta name="description" content="Pack opositor de Primaria, pack de Francés de Secundaria y revisión de programación didáctica con Javier León.">
-  <meta name="theme-color" content="#11100e">
+  <meta name="theme-color" content="#f7f5ef">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;display=swap">
   <style>
     :root {
-      color-scheme: dark;
-      --paper: #11100e;
-      --ink: #fff8eb;
-      --muted: #cbbca5;
-      --line: #554332;
-      --white: #1e1914;
-      --gold: #ffcf37;
+      --paper: #f7f5ef;
+      --ink: #182538;
+      --muted: #4e5b6e;
+      --line: #d8dce2;
+      --white: #fff;
+      --gold: #edb831;
+      --blue: #193c60;
       --display: "Barlow Condensed", "Arial Narrow", sans-serif;
     }
     * { box-sizing: border-box; }
     html { scroll-padding-top: 1.5rem; }
     body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
     h1, h2, h3 { font-family: var(--display); line-height: .99; text-wrap: balance; }
-    h1 { font-size: clamp(3.2rem, 9vw, 7.4rem); font-weight: 800; letter-spacing: -.018em; margin: .15em 0 .22em; text-transform: uppercase; text-shadow: 0 .06em .16em #080603; }
+    h1 { font-size: clamp(3.2rem, 9vw, 7.4rem); font-weight: 800; letter-spacing: -.018em; margin: .15em 0 .22em; text-transform: uppercase; }
     h2 { font-size: clamp(2.35rem, 5.2vw, 4.1rem); font-weight: 750; margin: 0 0 .48em; }
     h3 { font-size: 1.95rem; font-weight: 700; margin: .15em 0 .42em; }
     p { margin: 0 0 1rem; }
@@ -31,23 +31,25 @@
     .wrap { width: min(72rem, calc(100% - 2.5rem)); margin-inline: auto; }
     .skip { position: absolute; z-index: 2; top: .5rem; left: .5rem; padding: .5rem; background: var(--white); transform: translateY(-200%); }
     .skip:focus { transform: none; }
-    .masthead {
-      background:
-        radial-gradient(ellipse at 88% 19%, #ad6d2e55, transparent 42%),
-        linear-gradient(110deg, #12100de8 34%, #18110bbc 72%, #120d098f),
-        repeating-linear-gradient(90deg, #39281b 0 15px, #795134 15px 24px, #332419 24px 33px, #60412b 33px 44px);
-      border-bottom: 1px solid #775837;
-    }
+    .masthead { background: #eef2f7; border-bottom: 1px solid var(--line); }
     nav, .actions, .footer { display: flex; flex-wrap: wrap; align-items: center; gap: .85rem 1.4rem; }
-    nav { justify-content: space-between; padding-block: 1rem; border-bottom: 1px solid #b798654f; }
+    nav { justify-content: space-between; padding-block: 1rem; border-bottom: 1px solid var(--line); }
     .brand { font: 700 1.75rem/1 var(--display); text-decoration: none; }
-    .nav-link { color: var(--gold); text-underline-offset: .3em; }
-    .hero { padding-block: clamp(3.25rem, 8vw, 7rem); }
+    .nav-link { color: var(--blue); text-underline-offset: .3em; }
+    .hero { display: grid; grid-template-columns: 1.06fr 1fr; gap: clamp(1.75rem, 5vw, 4.75rem); align-items: center; padding-block: clamp(2.8rem, 7vw, 6rem); }
+    .hero-media, .video-link { display: block; text-decoration: none; }
+    .hero-media img, .video-link img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: .65rem; background: #dce3ea; }
+    .hero-media img { box-shadow: 0 1.2rem 2.7rem #152d4840; }
+    .media-caption { display: block; margin-top: .65rem; font-size: .9rem; font-weight: 700; color: var(--blue); }
+    .hero-media:hover .media-caption, .video-link:hover .media-caption { text-decoration: underline; }
+    .video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+    .brand { display: inline-flex; align-items: center; gap: .65rem; }
+    .brand img { width: 42px; height: 42px; border-radius: 50%; }
     .hero h1 { max-width: 14ch; }
-    .hero h1 span { color: var(--gold); }
-    .hero p:not(.eyebrow) { color: #f3e4ce; max-width: 52ch; font-size: 1.1rem; }
+    .hero h1 span { color: var(--blue); }
+    .hero p:not(.eyebrow) { color: var(--muted); max-width: 52ch; font-size: 1.1rem; }
     .eyebrow { font-size: .8rem; font-weight: 750; letter-spacing: .095em; text-transform: uppercase; margin-bottom: .6rem; }
-    .hero .eyebrow, .card .eyebrow { color: var(--gold); }
+    .hero .eyebrow, .card .eyebrow { color: var(--blue); }
     .actions { margin-top: 1.6rem; }
     .button {
       display: inline-flex; align-items: center; justify-content: center; min-height: 3rem;
@@ -56,30 +58,30 @@
       line-height: 1.3; text-decoration: none; text-align: center;
     }
     .button:hover { text-decoration: underline; text-underline-offset: .22em; }
-    .button.outline { background: transparent; color: var(--ink); border-color: #b59864; }
+    .button.outline { background: transparent; color: var(--blue); border-color: var(--blue); }
     .section { padding-block: clamp(2.8rem, 6vw, 5rem); }
     .cards, .split { display: grid; gap: 1.15rem; }
     .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .card {
-      display: flex; flex-direction: column; background: linear-gradient(150deg, #2b2118, var(--white) 58%);
-      border: 1px solid var(--line); border-top: 3px solid #9c6e3a; border-radius: .65rem;
-      padding: clamp(1.15rem, 3vw, 1.7rem); box-shadow: 0 .8rem 1.8rem #08060442;
+      display: flex; flex-direction: column; background: var(--white);
+      border: 1px solid var(--line); border-top: 3px solid #8ca5bb; border-radius: .65rem;
+      padding: clamp(1.15rem, 3vw, 1.7rem); box-shadow: 0 .5rem 1.2rem #152d4810;
     }
     .card:first-child { border-top-color: var(--gold); }
     .card .button { align-self: flex-start; margin-top: auto; }
     .muted { color: var(--muted); }
-    .price { color: var(--gold); font: 750 2.6rem/1.15 var(--display); }
+    .price { color: var(--blue); font: 750 2.6rem/1.15 var(--display); }
     .split { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
-    .band { background: #1c1712; border-block: 1px solid #483827; }
+    .band { background: #eaf0f6; border-block: 1px solid var(--line); }
     .features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.5rem; }
-    .features h3 { font-size: 1.6rem; color: var(--gold); }
+    .features h3 { font-size: 1.6rem; color: var(--blue); }
     .features p { margin: 0; }
     .stack > section + section { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
     details { border-bottom: 1px solid var(--line); }
     summary { cursor: pointer; font-weight: 700; padding-block: .8rem; }
     .footer { justify-content: space-between; padding-block: 1.3rem; border-top: 1px solid var(--line); }
     @media (max-width: 49rem) {
-      .cards, .split { grid-template-columns: 1fr; }
+      .cards, .split, .hero, .video-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 29rem) {
       .wrap { width: calc(100% - 2rem); }
@@ -91,17 +93,23 @@
   <a class="skip" href="#contenido">Saltar al contenido</a>
   <header class="masthead">
     <nav class="wrap" aria-label="Navegación principal">
-      <a class="brand" href="./">Javier León</a>
+      <a class="brand" href="./"><img src="https://yt3.googleusercontent.com/ytc/AIdro_khfWoINz8c3lAFZ1Mjy-xvmZ2xiBqNGFiDRqF1DIqVDrJt=s160-c-k-c0x00ffffff-no-rj" width="42" height="42" alt="">Javier León</a>
       <a class="nav-link" href="#oferta">Packs y revisión</a>
     </nav>
     <div class="wrap hero">
-      <p class="eyebrow">Oposiciones docentes · 2026–2027</p>
-      <h1>Prepara tu oposición <span>con un plan claro</span></h1>
-      <p>Elige el pack de tu especialidad o solicita una revisión si ya tienes un borrador de tu programación didáctica.</p>
-      <div class="actions">
-        <a class="button" href="#oferta">Ver packs de oposiciones</a>
-        <a class="button outline" href="#revision">Te corrijo la programación</a>
+      <div>
+        <p class="eyebrow">Oposiciones docentes · 2026–2027</p>
+        <h1>Prepara tu oposición <span>con un plan claro</span></h1>
+        <p>Elige el pack de tu especialidad o solicita una revisión si ya tienes un borrador de tu programación didáctica.</p>
+        <div class="actions">
+          <a class="button" href="#oferta">Ver packs de oposiciones</a>
+          <a class="button outline" href="#revision">Te corrijo la programación</a>
+        </div>
       </div>
+      <a class="hero-media" href="https://www.youtube.com/watch?v=uRmNH9UhMcQ">
+        <img src="https://i.ytimg.com/vi/uRmNH9UhMcQ/hq720.jpg" width="720" height="404" alt="Miniatura de Javier León preparando la defensa de una programación" fetchpriority="high">
+        <span class="media-caption">Ver el vídeo sobre la defensa en YouTube →</span>
+      </a>
     </div>
   </header>
 
@@ -183,6 +191,19 @@
         <p>Tras el pago podrás subir tu programación en Word (.doc o .docx) e indicar tu especialidad.</p>
         <p class="muted">Stripe te llevará al formulario de entrega. Para subir el Word, inicia sesión en Google e indica el correo que usaste para pagar.</p>
         <a class="button" href="https://buy.stripe.com/3cI3cxakBf3Ig8Gdt55Rm03">Contratar la corrección por 150 €</a>
+      </section>
+      <section aria-labelledby="canal-titulo">
+        <h2 id="canal-titulo">Vídeos de mi canal</h2>
+        <div class="video-grid">
+          <a class="video-link" href="https://www.youtube.com/watch?v=xwbxEcLSk8E">
+            <img src="https://i.ytimg.com/vi/xwbxEcLSk8E/hq720.jpg" width="720" height="404" alt="Javier León en la miniatura de análisis textual" loading="lazy">
+            <span class="media-caption">Análisis textual →</span>
+          </a>
+          <a class="video-link" href="https://www.youtube.com/watch?v=f-tXFco8SWg">
+            <img src="https://i.ytimg.com/vi/f-tXFco8SWg/hq720.jpg" width="720" height="404" alt="Javier León en la miniatura sobre el sistema fonológico del francés y del español" loading="lazy">
+            <span class="media-caption">Sistema fonológico del francés y del español →</span>
+          </a>
+        </div>
       </section>
       <section aria-labelledby="preguntas-titulo">
         <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
