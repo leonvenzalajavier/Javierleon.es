@@ -5,61 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Packs de oposiciones docentes y revisión de programación | Javier León</title>
   <meta name="description" content="Pack opositor de Primaria, pack de Francés de Secundaria y revisión de programación didáctica con Javier León.">
-  <meta name="theme-color" content="#122b27">
+  <meta name="theme-color" content="#11100e">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;display=swap">
   <style>
     :root {
-      --paper: #faf8f2;
-      --ink: #122b27;
-      --muted: #46605a;
-      --line: #d4ddd5;
-      --white: #fff;
-      --lime: #d9edaa;
+      color-scheme: dark;
+      --paper: #11100e;
+      --ink: #fff8eb;
+      --muted: #cbbca5;
+      --line: #554332;
+      --white: #1e1914;
+      --gold: #ffcf37;
+      --display: "Barlow Condensed", "Arial Narrow", sans-serif;
     }
     * { box-sizing: border-box; }
     html { scroll-padding-top: 1.5rem; }
     body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 system-ui, sans-serif; }
-    h1, h2, h3 { font-family: Georgia, serif; font-weight: 500; line-height: 1.08; text-wrap: balance; }
-    h1 { font-size: clamp(2.65rem, 6.8vw, 5.5rem); letter-spacing: -.055em; margin: .25em 0; }
-    h2 { font-size: clamp(2.1rem, 4.5vw, 3.5rem); letter-spacing: -.035em; margin: 0 0 .45em; }
-    h3 { font-size: 1.75rem; margin: .2em 0 .42em; }
+    h1, h2, h3 { font-family: var(--display); line-height: .99; text-wrap: balance; }
+    h1 { font-size: clamp(3.2rem, 9vw, 7.4rem); font-weight: 800; letter-spacing: -.018em; margin: .15em 0 .22em; text-transform: uppercase; text-shadow: 0 .06em .16em #080603; }
+    h2 { font-size: clamp(2.35rem, 5.2vw, 4.1rem); font-weight: 750; margin: 0 0 .48em; }
+    h3 { font-size: 1.95rem; font-weight: 700; margin: .15em 0 .42em; }
     p { margin: 0 0 1rem; }
     a { color: inherit; }
-    :focus-visible { outline: 3px solid #b8752d; outline-offset: 4px; }
-    .wrap { width: min(70rem, calc(100% - 2rem)); margin-inline: auto; }
-    .skip { position: absolute; top: .5rem; left: .5rem; padding: .5rem; background: var(--white); transform: translateY(-200%); }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(72rem, calc(100% - 2.5rem)); margin-inline: auto; }
+    .skip { position: absolute; z-index: 2; top: .5rem; left: .5rem; padding: .5rem; background: var(--white); transform: translateY(-200%); }
     .skip:focus { transform: none; }
-    .masthead { background: var(--ink); color: var(--white); }
+    .masthead {
+      background:
+        radial-gradient(ellipse at 88% 19%, #ad6d2e55, transparent 42%),
+        linear-gradient(110deg, #12100de8 34%, #18110bbc 72%, #120d098f),
+        repeating-linear-gradient(90deg, #39281b 0 15px, #795134 15px 24px, #332419 24px 33px, #60412b 33px 44px);
+      border-bottom: 1px solid #775837;
+    }
     nav, .actions, .footer { display: flex; flex-wrap: wrap; align-items: center; gap: .85rem 1.4rem; }
-    nav { justify-content: space-between; padding-block: 1rem; border-bottom: 1px solid #4a6058; }
-    .brand { font: 1.55rem Georgia, serif; text-decoration: none; }
-    .nav-link { color: var(--lime); text-underline-offset: .3em; }
-    .hero { padding-block: clamp(3.2rem, 8vw, 7rem); }
-    .hero h1 { max-width: 12ch; }
-    .hero p:not(.eyebrow) { color: #e0e9df; max-width: 53ch; font-size: 1.1rem; }
-    .eyebrow { font-size: .78rem; font-weight: 750; letter-spacing: .095em; text-transform: uppercase; margin-bottom: .6rem; }
-    .hero .eyebrow { color: var(--lime); }
-    .actions { margin-top: 1.7rem; }
+    nav { justify-content: space-between; padding-block: 1rem; border-bottom: 1px solid #b798654f; }
+    .brand { font: 700 1.75rem/1 var(--display); text-decoration: none; }
+    .nav-link { color: var(--gold); text-underline-offset: .3em; }
+    .hero { padding-block: clamp(3.25rem, 8vw, 7rem); }
+    .hero h1 { max-width: 14ch; }
+    .hero h1 span { color: var(--gold); }
+    .hero p:not(.eyebrow) { color: #f3e4ce; max-width: 52ch; font-size: 1.1rem; }
+    .eyebrow { font-size: .8rem; font-weight: 750; letter-spacing: .095em; text-transform: uppercase; margin-bottom: .6rem; }
+    .hero .eyebrow, .card .eyebrow { color: var(--gold); }
+    .actions { margin-top: 1.6rem; }
     .button {
       display: inline-flex; align-items: center; justify-content: center; min-height: 3rem;
-      padding: .65rem 1rem; border: 1px solid transparent; border-radius: .45rem;
-      background: var(--ink); color: var(--white); font-weight: 700;
+      padding: .65rem 1.1rem; border: 1px solid transparent; border-radius: .36rem;
+      background: var(--gold); color: #211507; font-weight: 750;
       line-height: 1.3; text-decoration: none; text-align: center;
     }
     .button:hover { text-decoration: underline; text-underline-offset: .22em; }
-    .button.light { background: var(--lime); color: var(--ink); }
-    .button.outline { background: transparent; color: inherit; border-color: currentColor; }
+    .button.outline { background: transparent; color: var(--ink); border-color: #b59864; }
     .section { padding-block: clamp(2.8rem, 6vw, 5rem); }
-    .cards, .split { display: grid; gap: 1.1rem; }
+    .cards, .split { display: grid; gap: 1.15rem; }
     .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: .85rem; padding: clamp(1.15rem, 3vw, 1.7rem); }
-    .card:first-child { border-top: 4px solid #456b3d; }
+    .card {
+      display: flex; flex-direction: column; background: linear-gradient(150deg, #2b2118, var(--white) 58%);
+      border: 1px solid var(--line); border-top: 3px solid #9c6e3a; border-radius: .65rem;
+      padding: clamp(1.15rem, 3vw, 1.7rem); box-shadow: 0 .8rem 1.8rem #08060442;
+    }
+    .card:first-child { border-top-color: var(--gold); }
     .card .button { align-self: flex-start; margin-top: auto; }
     .muted { color: var(--muted); }
-    .price { font-size: 2rem; font-weight: 750; line-height: 1.2; }
+    .price { color: var(--gold); font: 750 2.6rem/1.15 var(--display); }
     .split { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; }
-    .band { background: #edf2e8; }
-    .features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem; margin-top: 1.5rem; }
-    .features h3 { font-size: 1.4rem; }
+    .band { background: #1c1712; border-block: 1px solid #483827; }
+    .features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1.5rem; }
+    .features h3 { font-size: 1.6rem; color: var(--gold); }
     .features p { margin: 0; }
     .stack > section + section { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
     details { border-bottom: 1px solid var(--line); }
@@ -69,6 +82,7 @@
       .cards, .split { grid-template-columns: 1fr; }
     }
     @media (max-width: 29rem) {
+      .wrap { width: calc(100% - 2rem); }
       .features { grid-template-columns: 1fr; }
     }
   </style>
@@ -82,10 +96,10 @@
     </nav>
     <div class="wrap hero">
       <p class="eyebrow">Oposiciones docentes · 2026–2027</p>
-      <h1>Prepara tu oposición con un plan claro</h1>
+      <h1>Prepara tu oposición <span>con un plan claro</span></h1>
       <p>Elige el pack de tu especialidad o solicita una revisión si ya tienes un borrador de tu programación didáctica.</p>
       <div class="actions">
-        <a class="button light" href="#oferta">Ver packs de oposiciones</a>
+        <a class="button" href="#oferta">Ver packs de oposiciones</a>
         <a class="button outline" href="#revision">Te corrijo la programación</a>
       </div>
     </div>
@@ -189,6 +203,7 @@
   </main>
   <footer class="wrap footer">
     <span>© 2026 Javier León</span>
+    <a href="https://www.youtube.com/@proffle33">Javier León en YouTube</a>
     <a href="#oferta">Volver a packs y revisión</a>
   </footer>
 </body>
